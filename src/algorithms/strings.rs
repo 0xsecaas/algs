@@ -1,12 +1,14 @@
-pub fn find_the_difference(s1: String, s2: String) -> char {
-    for c in s1.chars() {
-        let count_in_s1 = s1.matches(c).count();
-        let count_in_s2 = s2.matches(c).count();
-        if count_in_s1 > count_in_s2 {
-            return c;
-        }
+pub fn xor(s1: String, s2: String) -> char {
+    let mut res: u8 = 0;
+
+    for c in s1.bytes() {
+        res ^= c;
     }
-    unreachable!();
+    for c in s2.bytes() {
+        res ^= c;
+    }
+
+    res as char
 }
 
 pub fn merge_alternately(word1: String, word2: String) -> String {
@@ -30,15 +32,14 @@ pub fn merge_alternately(word1: String, word2: String) -> String {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::{find_the_difference, merge_alternately};
+mod units {
+    use super::{merge_alternately, xor};
 
     #[test]
-    fn test_1() {
-        let s1: String = String::from("abcd");
-        let s2 = String::from("abcde");
-
-        //assert_eq!(find_the_difference(s1, s2), 'e');
+    fn test_xor() {
+        assert_eq!(xor(String::from("abcd"), String::from("abcde")), 'e');
+        assert_eq!(xor(String::new(), String::from("y")), 'y');
+        assert_eq!(xor(String::from("x"), String::new()), 'x');
     }
 
     #[test]
