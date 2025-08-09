@@ -108,7 +108,7 @@ mod tests {
 
     #[test]
     fn test_4() {
-        assert_eq!(fibo_4(100), BigUint::from(354224848179261915075 as u128));
+        assert_eq!(fibo_4(100), BigUint::from(354224848179261915075_u128));
         fibo_4(1_000_000);
     }
 }

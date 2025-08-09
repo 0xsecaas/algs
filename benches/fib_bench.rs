@@ -10,9 +10,9 @@ fn bench_fibo(c: &mut Criterion) {
 
     // test small, medium, and large inputs
     let small_inputs = vec![10u64, 20, 30, 40];
-    let medium_inputs = vec![50u64, 60, 70, 80, 90];
-    let large_inputs = vec![100u64, 200, 400, 600, 800, 1000];
-    let huge_inputs = vec![10_000u64, 1_000_000];
+    let medium_inputs = [50u64, 60, 70, 80, 90];
+    let large_inputs = [100u64, 200, 400, 600, 800, 1000];
+    let huge_inputs = [10_000u64, 1_000_000];
 
 
     // fibo_1 recursive -- only on small inputs
