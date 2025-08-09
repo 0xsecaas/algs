@@ -1,5 +1,5 @@
-use num_bigint::{BigInt, BigUint};
-use num_traits::{ConstZero, One, Zero};
+use num_bigint::{BigUint};
+use num_traits::{One};
 
 /// Naive recursive complexity is O(2ⁿ)
 pub fn fibo_1(n: u32) -> u32 {
